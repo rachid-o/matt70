@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- White rounded background -->
+  <rect width="100" height="100" rx="18" fill="#f5f5f5"/>
+
+  <defs>
+    <clipPath id="lc">
+      <path d="M7,52 L7,37 Q7,14 50,14 Q93,14 93,37 L93,52 Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- Chest lid (arched) -->
+  <path d="M7,52 L7,37 Q7,14 50,14 Q93,14 93,37 L93,52 Z" fill="#111"/>
+  <!-- Lid stripes (clipped to lid shape) -->
+  <rect x="21" y="0" width="8" height="55" clip-path="url(#lc)" fill="#f5f5f5"/>
+  <rect x="71" y="0" width="8" height="55" clip-path="url(#lc)" fill="#f5f5f5"/>
+
+  <!-- Hinge band -->
+  <rect x="7" y="50" width="86" height="6" fill="#f5f5f5"/>
+
+  <!-- Chest body -->
+  <rect x="7" y="54" width="86" height="34" rx="4" fill="#111"/>
+  <!-- Body stripes -->
+  <rect x="21" y="56" width="8" height="30" fill="#f5f5f5"/>
+  <rect x="71" y="56" width="8" height="30" fill="#f5f5f5"/>
+
+  <!-- Padlock shackle: U-shape via stroke path -->
+  <!-- A rx ry 0 large-arc sweep-flag: sweep=0 = counterclockwise = top arc -->
+  <path d="M41,72 L41,63 A9,11 0 0 0 59,63 L59,72"
+        fill="none" stroke="#f5f5f5" stroke-width="6" stroke-linecap="butt"/>
+
+  <!-- Padlock body -->
+  <rect x="37" y="69" width="26" height="19" rx="3" fill="#f5f5f5"/>
+
+  <!-- Keyhole -->
+  <circle cx="50" cy="76" r="3.2" fill="#111"/>
+  <rect x="48.4" y="76" width="3.2" height="7" rx="1" fill="#111"/>
+</svg>

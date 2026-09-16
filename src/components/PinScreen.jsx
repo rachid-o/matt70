@@ -1,0 +1,69 @@
+import { useState } from "react";
+import { PIN, DEBUG_PIN } from "../config/trail";
+
+export default function PinScreen({ onSuccess }) {
+  const [input, setInput] = useState("");
+  const [shake, setShake] = useState(false);
+
+  function handleDigit(d) {
+    const next = input + d;
+    const maxLen = Math.max(PIN.length, DEBUG_PIN.length);
+    if (next.length < maxLen) {
+      setInput(next);
+      if (next.length === PIN.length && next === PIN) {
+        onSuccess(false);
+      }
+    } else if (next.length === maxLen) {
+      if (next === DEBUG_PIN) {
+        onSuccess(true);
+      } else if (next === PIN) {
+        onSuccess(false);
+      } else {
+        setShake(true);
+        setTimeout(() => {
+          setInput("");
+          setShake(false);
+        }, 600);
+      }
+    }
+  }
+
+  function handleDelete() {
+    setInput((prev) => prev.slice(0, -1));
+  }
+
+  const dots = Array.from({ length: PIN.length }, (_, i) => i);
+
+  return (
+    <div className="screen pin-screen">
+      <div className="pin-header">
+        <div className="compass-icon">🗝️</div>
+        <h1>Matt 70 jaar</h1>
+        <p>Voer de PIN-code in: Ga terug naar jullie begin</p>
+      </div>
+
+      <div className={`pin-dots ${shake ? "shake" : ""}`}>
+        {dots.map((i) => (
+          <div key={i} className={`dot ${i < input.length ? "filled" : ""}`} />
+        ))}
+      </div>
+
+      <div className="pin-pad">
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((d) => (
+          <button key={d} className="pin-btn" onClick={() => handleDigit(String(d))}>
+            {d}
+          </button>
+        ))}
+        <div />
+        <button className="pin-btn" onClick={() => handleDigit("0")}>0</button>
+        <button className="pin-btn delete-btn" onClick={handleDelete}>⌫</button>
+      </div>
+
+      <div className="install-hint">
+        <p className="install-hint-title">Werkt het beste als app in Chrome</p>
+        <p>Android: tik op <strong>⋮</strong> → <strong>Toevoegen aan startscherm</strong></p>
+        <p>iPhone: tik op <strong>deel-icoon</strong> → <strong>Zet op beginscherm</strong></p>
+      </div>
+    </div>
+  );
+}

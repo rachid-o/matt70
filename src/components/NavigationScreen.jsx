@@ -1,0 +1,182 @@
+import { useEffect, useRef, useState } from "react";
+import { useGeolocation } from "../hooks/useGeolocation";
+import { useCompass } from "../hooks/useCompass";
+import { haversineDistance, calculateBearing, formatDistance } from "../utils/geo";
+import { STOPS } from "../config/trail";
+
+// Always rotate the shortest way (avoids spinning 340° instead of 20°)
+function shortestPath(from, to) {
+  const diff = ((to - from + 180) % 360 + 360) % 360 - 180;
+  return from + diff;
+}
+
+export default function NavigationScreen({ stopIndex, onArrived, debugMode }) {
+  const stop = STOPS[stopIndex];
+  const { position, error: gpsError } = useGeolocation();
+  const { heading, permissionNeeded, requestPermission, compassAvailable } = useCompass();
+  const prevRotationRef = useRef(null);
+  const hints = stop.hints ?? [];
+  const [hintsShown, setHintsShown] = useState(0);
+  const [showHintOverlay, setShowHintOverlay] = useState(false);
+  const [showCheat, setShowCheat] = useState(false);
+  const [cheatInput, setCheatInput] = useState("");
+  const [cheatError, setCheatError] = useState(false);
+
+  const distance = position
+    ? haversineDistance(position.lat, position.lng, stop.lat, stop.lng)
+    : null;
+
+  const bearing = position
+    ? calculateBearing(position.lat, position.lng, stop.lat, stop.lng)
+    : null;
+
+  const rawRotation =
+    bearing !== null && heading !== null ? bearing - heading : bearing ?? 0;
+
+  const arrowRotation =
+    prevRotationRef.current === null
+      ? rawRotation
+      : shortestPath(prevRotationRef.current, rawRotation);
+  prevRotationRef.current = arrowRotation;
+
+  useEffect(() => {
+    if (distance !== null && distance <= stop.arrivalRadius) {
+      onArrived();
+    }
+  }, [distance, stop.arrivalRadius, onArrived]);
+
+  function handleCheatSubmit(e) {
+    e.preventDefault();
+    if (cheatInput.trim().toLowerCase() === stop.cheatCode) {
+      setShowCheat(false);
+      onArrived();
+    } else {
+      setCheatError(true);
+      setCheatInput("");
+      setTimeout(() => setCheatError(false), 1500);
+    }
+  }
+
+  return (
+    <div className="screen navigation-screen">
+      <div className={`stop-badge${stop.isFinal ? " finale" : ""}`}>
+        {stop.isFinal ? "Finale" : `Stop ${stopIndex + 1} / ${STOPS.length}`}
+      </div>
+
+      <h2>{stop.isFinal ? "Jullie zijn er bijna!" : "Volg het kompas"}</h2>
+
+      {permissionNeeded && (
+        <button className="btn-secondary" onClick={requestPermission}>
+          Activeer kompas
+        </button>
+      )}
+
+      <div className="compass-container">
+        <div
+          className="compass-arrow"
+          style={{ transform: `rotate(${arrowRotation}deg)` }}
+        >
+          <svg viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="50,5 15,145 50,115 85,145" fill="#d4a017" />
+          </svg>
+        </div>
+      </div>
+
+      <div className="distance-display">
+        {gpsError ? (
+          <p className="error-text">{gpsError}</p>
+        ) : distance !== null ? (
+          <>
+            <span className="distance-value">{formatDistance(distance)}</span>
+            <span className="distance-label">nog te gaan</span>
+          </>
+        ) : (
+          <p className="loading-text">GPS bepalen…</p>
+        )}
+      </div>
+
+      <p className="nav-hint">
+        Houd je telefoon horizontaal voor het beste kompas-resultaat.
+      </p>
+
+      {compassAvailable === false && (
+        <p className="nav-hint" style={{ color: "#e07b39" }}>
+          Kompas niet beschikbaar op dit apparaat — gebruik de afstandsindicator als leidraad.
+        </p>
+      )}
+
+      {hints.length > 0 && (
+        <button className="btn-hint" onClick={() => { if (hintsShown === 0) setHintsShown(1); setShowHintOverlay(true); }}>
+          💡 {hintsShown === 0 ? "Hint tonen" : "Hints bekijken"}
+        </button>
+      )}
+
+      {showHintOverlay && (
+        <div className="confirm-overlay" onClick={() => setShowHintOverlay(false)}>
+          <div className="confirm-dialog hint-overlay-dialog" onClick={e => e.stopPropagation()}>
+            <p className="hint-overlay-title">💡 {hints.length > 1 ? "Hints" : "Hint"}</p>
+            <div className="hint-overlay-list">
+              {hints.slice(0, hintsShown).map((hint, i) => {
+                const text = typeof hint === "string" ? hint : hint.text;
+                const image = typeof hint === "object" ? hint.image : null;
+                return (
+                  <div className="hint-box" key={i}>
+                    {hints.length > 1 && <span className="hint-label">Hint {i + 1}</span>}
+                    {text && <p>{text}</p>}
+                    {image && <img src={`${import.meta.env.BASE_URL}${image}`} alt="hint" className="hint-image" />}
+                  </div>
+                );
+              })}
+            </div>
+            {hintsShown < hints.length && (
+              <button className="btn-hint" onClick={() => setHintsShown(n => n + 1)}>
+                💡 Volgende hint
+              </button>
+            )}
+            <button className="btn-secondary" onClick={() => setShowHintOverlay(false)}>
+              Sluiten
+            </button>
+          </div>
+        </div>
+      )}
+
+      {!stop.isFinal && (
+        <button className="cheat-btn" onClick={() => { setShowCheat(true); setCheatInput(""); setCheatError(false); }}>
+          noodcode
+        </button>
+      )}
+
+      {debugMode && (
+        <div className="debug-badge">{stop.name} · aankomstradius: {stop.arrivalRadius} m</div>
+      )}
+
+      {showCheat && (
+        <div className="confirm-overlay" onClick={() => setShowCheat(false)}>
+          <div className="confirm-dialog" onClick={e => e.stopPropagation()}>
+            <p style={{ fontFamily: "'Cinzel', serif", color: "var(--gold)", fontWeight: 600 }}>Noodcode</p>
+            <p style={{ fontSize: "0.9rem", color: "var(--text-dim)" }}>App Suus & Rachid voor de code van deze stop.</p>
+            <form onSubmit={handleCheatSubmit} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              <input
+                className={`answer-input${cheatError ? " input-wrong" : ""}`}
+                type="text"
+                value={cheatInput}
+                onChange={e => setCheatInput(e.target.value)}
+                placeholder="4-cijferige code…"
+                autoComplete="off"
+                autoCorrect="off"
+                spellCheck="false"
+                autoFocus
+                maxLength={4}
+              />
+              <button className="btn-primary" type="submit" disabled={!cheatInput.trim()}>
+                Controleer →
+              </button>
+            </form>
+            {cheatError && <p style={{ color: "var(--red)", fontSize: "0.9rem" }}>Verkeerde code. Probeer opnieuw.</p>}
+            <button className="btn-secondary" onClick={() => setShowCheat(false)}>Sluiten</button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
