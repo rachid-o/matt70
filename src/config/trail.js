@@ -7,7 +7,9 @@ export const DEBUG_MODE = false;
 export const PIN = "1956";
 export const DEBUG_PIN = "9000";
 // Nog doen: tekst bij pincode aanpassen 
-// Tekst om te vertellen: papa, gefeliciteerd. We hebben een heel leuk kadootje voor je. Alleen hadden we die voor de zekerheid opgeborgen in een kistje. Met een slot er omheen, zodat het extra veilig is. Maar nu zijn we de code kwijt. We hebben gelukkig wel een manier voor je om de code te achterhalen. Daar kan deze tablet je bij helpen. Heel veel succes.
+// Tekst om te vertellen: papa, gefeliciteerd. We hebben een heel leuk kadootje voor je. 
+// Alleen hadden we die voor de zekerheid opgeborgen in een kistje. Met een slot er omheen, zodat het extra veilig is. Maar nu zijn we de code kwijt. 
+// We hebben gelukkig wel een manier voor je om de code te achterhalen. Daar kan deze tablet je bij helpen. Heel veel succes.
 
 export const WELCOME = {
   title: "Opa Matt ~ 70 jaar!",
@@ -26,10 +28,11 @@ export const WELCOME = {
 export const STOPS = [
   {
     name: "Er was eens...", //adres: Beerschemaasweg 55, 6545 AC Nijmegen
-    // Nog doen: 1. Adres aanpassen. 2. Aantal antwoorden aanpassen, hij kan nu niet omgaan met dat er foute antwoorden tussen staan.
-    lat: 51.8154819,
-    lng: 51.8154819,
-    arrivalRadius: 20,
+    // Nog doen: 
+    // 2. Aantal antwoorden aanpassen, hij kan nu niet omgaan met dat er foute antwoorden tussen staan.
+    lat: 51.741462, 
+    lng: 5.748668,
+    arrivalRadius: 10,
     showCat: true,
     cheatCode: "r2e9",
     arrivalMessage: "Lang geleden, heel lang geleden, op een boerderij in een heel klein dorpje werd een kleine Martien geboren. Hij groeide op tot een bebaarde jongeman en ontmoette zijn prinses uit Langenboom. Samen kregen ze twee draakjes van kinderen. Elke week passen ze op de kleinkaboutertjes en leven ze nog lang en gelukkig. \n\n"
@@ -66,10 +69,13 @@ export const STOPS = [
   },
   {
     name: "Je moet een Risk durven nemen", // Adres: Oefenhokje van Tennisvereniging Esteren, Karweg 2, 5364 MZ Escharen
-    // Nog doen: 1. Adres en radius aanpassen. 2. Puzzel aanpassen. 3. Foto grafitti toevoegen. 4. Bij goede antwoord tekst aanpassen naar 'Dat klopt!'5. Foto toevoegen met goede antwoorden omcirkeld 6. Foto's toevoegen van sport en spel bij startpagina
-    lat: 51.819329,
-    lng: 5.865646,
-    arrivalRadius: 15,
+    // Nog doen: 
+    // 2. Puzzel aanpassen. 
+    // 3. Foto grafitti toevoegen. 
+    // 4. Bij goede antwoord tekst aanpassen naar 'Dat klopt!'5. Foto toevoegen met goede antwoorden omcirkeld 6. Foto's toevoegen van sport en spel bij startpagina
+    lat: 51.740569, 
+    lng: 5.739456,
+    arrivalRadius: 5,
     showCat: true,
     cheatCode: "8ks4",
     arrivalMessage: "Onze Matt houdt wel van een spelletje. Vroeger voetbalde hij zelf, maar nu kijkt het vooral: het liefste als Bas speelt. Maar hij zit niet stil: tennis, dynamic tennis, padel; de ballen vliegen hem om de oren. En hij is nog steeds te porren voor een (kaart)spelletje, waarbij hij een risico niet uit de weg gaat. Maar lukt het hem ook om dit spelletje te winnen? \n",
@@ -84,10 +90,13 @@ export const STOPS = [
   },
     {
     name: "Een lange loopbaan", //Adres: Kantine van Tennisvereniging Esteren, Karweg 2, 5364 MZ Escharen
-    //Nog doen: 1. Adres en radius aanpassen. 2. Puzzel tekst aanpassen 3. Foto toevoegen prins Matt en/of LOE na afronden opdracht 4. Foto toevoegen van werk bij startpagina 5. Tweede hint verwijderen
-    lat: 51.8185806,
-    lng: 5.8669618,
-    arrivalRadius: 20,
+    // Nog doen: 
+    // 2. Puzzel tekst aanpassen 
+    // 3. Foto toevoegen prins Matt en/of LOE na afronden opdracht 
+    // 4. Foto toevoegen van werk bij startpagina 5. Tweede hint verwijderen
+    lat: 51.740666, 
+    lng: 5.740385,
+    arrivalRadius: 5,
     showCat: true,
     cheatCode: "b9x4",
     arrivalMessage: "Opa Matt geniet nu van een welverdiend persioen, maar hiervoor was hij beroepsambtenaar. Hij werd over de hele regio gestationeerd, zoals helemaal in Beers en zelfs in Uden! Maar onze Matt heeft voor nog een bijzondere organisatie gewerkt. Weten jullie welke? \n\nOpdracht: \n Volg de drie aanwijzingen om het antwoord te vinden.",
@@ -101,10 +110,12 @@ export const STOPS = [
     completeMessage: "Dit was de kantine! Op naar de volgende stop.",
   }, 
   {
-    name: "Van Classic Rock tot The Rock", //Adres:'t Dorpshuus, Meester Bongaardsweg 2, 5364 PM Escharen
-    // Nog doen: 1. Adres en radius aanpassen 2. Foto's toevoegen startscherm van Status Quo en Alice Cooper 3. Foto's eindscherm toevoegen van Cody's making off 4. Optioneel: volgorde films aanpassen
-    lat: 51.8451501,
-    lng: 5.867057,
+    name: "Van Classic Rock tot The Rock", //Adres: 't Dorpshuus, Meester Bongaardsweg 2, 5364 PM Escharen
+    // Nog doen: 
+    // 2. Foto's toevoegen startscherm van Status Quo en Alice Cooper 
+    // 3. Foto's eindscherm toevoegen van Cody's making off 4. Optioneel: volgorde films aanpassen
+    lat: 51.744164, 
+    lng: 5.745508,
     arrivalRadius: 10,
     showCat: true,
     cheatCode: "p3n7",
@@ -127,12 +138,13 @@ export const STOPS = [
     completeMessage: "Dat was 't Dorpshuus! Op naar de volgende stop.",
   }, 
    {
-    name: "Stoute opa!",
-    // Adres: Speeltuin bij Basisschool de Ester - Sint Machutusweg 2A, 5364 RB Escharen
-    // Nog doen: 1. Adres en radius aanpassen. 2. Puzzel tekst aanpassen 3. Foto toevoegen van spelende opa met kleinkinderen bij eindpagina
-    lat: 51.847563,
-    lng: 5.8705543,
-    arrivalRadius: 30,
+    name: "Stoute opa!", // Adres: Speeltuin bij Basisschool de Ester - Sint Machutusweg 2A, 5364 RB Escharen
+    // Nog doen: 
+    // 2. Puzzel tekst aanpassen 
+    // 3. Foto toevoegen van spelende opa met kleinkinderen bij eindpagina
+    lat: 51.742911, 
+    lng: 5.745409,
+    arrivalRadius: 10,
     showCat: true,
     cheatCode: "9mw5",
     arrivalMessage: "Stoute opa? Speelse opa! \n\n Opa doet niets liever dan samen met oma met de kleinkinderen spelen: samen wandelen, naar de speeltuin, spelletjes spelen. \n En opa houdt ook zeker van om een beetje gek te doen. \n Dat komt goed uit, want dat is zeker nodig voor de volgende opdrachten.",
@@ -165,11 +177,12 @@ export const STOPS = [
     completeMessage: "Dat was de speeltuin! Op naar de laatste stop.",
   },
  {
-    name: "Wereldwijs(?)",
-    // Adres: Thuis, Veldweg 17, 5364 RH Escharen
-    // Nog doen: 1. Adres en radius aanpassen. 2. Extra pagina toevoegen met foto's van reizen en eerste deel van tekst. 3. Foto toevoegen van familie bij tweede pagina tekst 4. Hint weghalen bij kompas (wel laten staan bij arrivalmessage) 5. tekst gecentreerd aanpassen naar links uitgelijnd
-    lat: 51.8376845,
-    lng: 5.8325001,
+    name: "Wereldwijs(?)", // Adres: Thuis, Veldweg 17, 5364 RH Escharen
+    // Nog doen: 
+    // 2. Extra pagina toevoegen met foto's van reizen en eerste deel van tekst. 
+    // 3. Foto toevoegen van familie bij tweede pagina tekst 4. Hint weghalen bij kompas (wel laten staan bij arrivalmessage) 5. tekst gecentreerd aanpassen naar links uitgelijnd
+    lat: 51.742354, 
+    lng: 5.748381,
     arrivalRadius: 5,
     hints: ["Leg de foto's op chronologische volgorde en draai ze om."],
     arrivalMessage: "Samen reizen opa en oma de wereld rond.\n Maar geen enkele plek is zo fijn als hier: \n thuis met z'n allen samen. \n\n Lieve opa, \n\nDe reis is bijna ten einde: nog 1 opdracht te gaan.\n In de kamer liggen drie foto's verstopt: \n samen vormen ze de code. \n\n Succes!",
