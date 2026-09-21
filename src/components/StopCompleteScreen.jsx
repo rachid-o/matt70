@@ -21,7 +21,7 @@ export default function StopCompleteScreen({ stopIndex, onNext }) {
       </div>
 
       <button className="btn-primary" onClick={onNext}>
-        {isLastStop ? "Naar huis →" : "Volgende stop →"}
+        {"Volgende stop →"}
       </button>
     </div>
   );
