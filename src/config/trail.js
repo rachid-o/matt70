@@ -26,6 +26,97 @@ export const WELCOME = {
 };
 
 export const STOPS = [
+
+    {
+    name: "Speeltuin Neptunus",
+    lat: 51.838921,
+    lng: 5.832842,
+    arrivalRadius: 10,
+    showCat: true,
+    cheatCode: "t1n7",
+    puzzle: {
+      type: "text",
+      question: "1 + 1 = ?",
+      answer: "2",
+      hints: ["Gebruik een rekenmachine"],
+    },
+    completeMessage: "Geweldig! Jullie eerste stop zit erop! Op naar de volgende stop.",
+  },
+  {
+    name: "Midden in Planetenpark",
+    lat: 51.838292,
+    lng: 5.830611,
+    arrivalRadius: 20,
+    showCat: true,
+    cheatCode: "m1p7",
+    puzzle: {
+      type: "text",
+      question: "Jullie eerste echte vakantie samen: welke stad was dat?",
+      answer: "amsterdam",
+      hints: ["De stad staat bekend om zijn grachten en fietsen.", "Het was ergens in Nederland, de hoofdstad."],
+    },
+    completeMessage: "Wat een mooie herinnering! Jullie zijn er bijna...",
+  },
+  {
+    name: "Speeltuin 2",
+    lat: 51.8373541,
+    lng: 5.8295025,
+    arrivalRadius: 20,
+    showCat: true,
+    cheatCode: "s2p7",
+    puzzle: {
+      type: "text",
+      question: "Wat is 1 + 1?",
+      answer: "2",
+      hints: ["Het antwoord is een getal."],
+    },
+    completeMessage: "Dit was speeltuin 2! Op naar de volgende stop.",
+  },
+  {
+    name: "Vogeltjes?",
+    lat: 51.8383303,
+    lng: 5.8280723,
+    arrivalRadius: 20,
+    showCat: true,
+    cheatCode: "v0g7",
+    puzzle: {
+      type: "text",
+      question: "Wat is 1 + 1?",
+      answer: "2",
+      hints: ["Het antwoord is een getal."],
+    },
+    completeMessage: "Had je toevallig vogeltjes kunnen spotten?",
+  },
+  {
+    name: "Filimo",
+    lat: 51.836357039896214,
+    lng: 5.824969690886946,
+    arrivalRadius: 20,
+    showCat: true,
+    cheatCode: "f1l7",
+    puzzle: {
+      type: "text",
+      question: "Wat is 1 + 1?",
+      answer: "2",
+      hints: ["Het antwoord is een getal."],
+    },
+    completeMessage: "Filimo! Op naar de volgende stop.",
+  },
+  {
+    name: "Steegje Lanteerne",
+    lat: 51.835570,
+    lng: 5.823362,
+    arrivalRadius: 15,
+    showCat: true,
+    cheatCode: "l4n7",
+    puzzle: {
+      type: "text",
+      question: "Wat is 1 + 1?",
+      answer: "2",
+      hints: ["Het antwoord is een getal."],
+    },
+    completeMessage: "Steegje Lanteerne! Op naar de volgende stop.",
+  },
   {
     name: "Er was eens...", //adres: Beerschemaasweg 55, 6545 AC Nijmegen
     // Nog doen: 
