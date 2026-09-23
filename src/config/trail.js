@@ -88,21 +88,6 @@ export const STOPS = [
     completeMessage: "Had je toevallig vogeltjes kunnen spotten?",
   },
   {
-    name: "Filimo",
-    lat: 51.836357039896214,
-    lng: 5.824969690886946,
-    arrivalRadius: 20,
-    showCat: true,
-    cheatCode: "f1l7",
-    puzzle: {
-      type: "text",
-      question: "Wat is 1 + 1?",
-      answer: "2",
-      hints: ["Het antwoord is een getal."],
-    },
-    completeMessage: "Filimo! Op naar de volgende stop.",
-  },
-  {
     name: "Steegje Lanteerne",
     lat: 51.835570,
     lng: 5.823362,
