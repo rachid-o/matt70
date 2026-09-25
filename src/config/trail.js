@@ -106,6 +106,7 @@ export const STOPS = [
     name: "Er was eens...", //adres: Beerschemaasweg 55, 6545 AC Nijmegen
     // Nog doen: 
     // 2. Aantal antwoorden aanpassen, hij kan nu niet omgaan met dat er foute antwoorden tussen staan.
+    // 3. adres aan de straat (plus grotere radius)
     lat: 51.741462, 
     lng: 5.748668,
     arrivalRadius: 10,
@@ -135,8 +136,7 @@ export const STOPS = [
         { label: "J", url: `${import.meta.env.BASE_URL}tijdvliegt/J.jpg` }, // Sarah
         { label: "K", url: `${import.meta.env.BASE_URL}tijdvliegt/K.jpg` }, // Cody
         { label: "L", url: `${import.meta.env.BASE_URL}tijdvliegt/L.jpg` }, // Sanne
-        { label: "M", url: `${import.meta.env.BASE_URL}tijdvliegt/M.jpg` }, // Vader Sanne
-        { label: "N", url: `${import.meta.env.BASE_URL}tijdvliegt/N.jpg` }, // Robin
+        { label: "M", url: `${import.meta.env.BASE_URL}tijdvliegt/M.jpg` }, // Robin
       ],
       answer: "ICDLHANFK",
       hints: ["De volgende foto's zijn afleiders: B, E, G, J, M"],
@@ -148,7 +148,9 @@ export const STOPS = [
     // Nog doen: 
     // 2. Puzzel aanpassen. 
     // 3. Foto grafitti toevoegen. 
-    // 4. Bij goede antwoord tekst aanpassen naar 'Dat klopt!'5. Foto toevoegen met goede antwoorden omcirkeld 6. Foto's toevoegen van sport en spel bij startpagina
+    // 4. Bij goede antwoord tekst aanpassen naar 'Dat klopt!'
+    // 5. Foto toevoegen met goede antwoorden omcirkeld 
+    // 6. Foto's toevoegen van sport en spel bij startpagina
     lat: 51.740569, 
     lng: 5.739456,
     arrivalRadius: 5,
@@ -169,7 +171,8 @@ export const STOPS = [
     // Nog doen: 
     // 2. Puzzel tekst aanpassen 
     // 3. Foto toevoegen prins Matt en/of LOE na afronden opdracht 
-    // 4. Foto toevoegen van werk bij startpagina 5. Tweede hint verwijderen
+    // 4. Foto toevoegen van werk bij startpagina 
+    // 5. Rachid Tweede hint verwijderen
     lat: 51.740666, 
     lng: 5.740385,
     arrivalRadius: 5,
@@ -189,7 +192,8 @@ export const STOPS = [
     name: "Van Classic Rock tot The Rock", //Adres: 't Dorpshuus, Meester Bongaardsweg 2, 5364 PM Escharen
     // Nog doen: 
     // 2. Foto's toevoegen startscherm van Status Quo en Alice Cooper 
-    // 3. Foto's eindscherm toevoegen van Cody's making off 4. Optioneel: volgorde films aanpassen
+    // 3. Foto's eindscherm toevoegen van Cody's making off 
+    // 4. Optioneel: volgorde films aanpassen
     lat: 51.744164, 
     lng: 5.745508,
     arrivalRadius: 10,
@@ -256,7 +260,9 @@ export const STOPS = [
     name: "Wereldwijs(?)", // Adres: Thuis, Veldweg 17, 5364 RH Escharen
     // Nog doen: 
     // 2. Extra pagina toevoegen met foto's van reizen en eerste deel van tekst. 
-    // 3. Foto toevoegen van familie bij tweede pagina tekst 4. Hint weghalen bij kompas (wel laten staan bij arrivalmessage) 5. tekst gecentreerd aanpassen naar links uitgelijnd
+    // 3. Foto toevoegen van familie bij tweede pagina tekst 
+    // 4. Rachid Hint weghalen bij kompas (wel laten staan bij arrivalmessage) 
+    // 5. tekst gecentreerd aanpassen naar links uitgelijnd
     lat: 51.742354, 
     lng: 5.748381,
     arrivalRadius: 5,

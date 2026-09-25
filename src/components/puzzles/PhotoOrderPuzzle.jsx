@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function PhotoOrderPuzzle({ puzzle, onSolved }) {
-  const n = puzzle.photos.length;
+  const n = puzzle.answer.length;
   const labels = puzzle.photos.map(p => p.label.toUpperCase());
   const [guess, setGuess] = useState(Array(n).fill(null));
   const [activeSlot, setActiveSlot] = useState(0);
