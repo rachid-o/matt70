@@ -119,7 +119,6 @@ export const STOPS = [
     {
     name: "Een lange loopbaan", //Adres: Kantine van Tennisvereniging Esteren, Karweg 2, 5364 MZ Escharen
     // Nog doen: 
-    // 5. Rachid Tweede hint verwijderen
     lat: 51.740666, 
     lng: 5.740385,
     arrivalRadius: 5,
@@ -131,16 +130,15 @@ export const STOPS = [
       question: "Aanwijzingen:\n Stap 1:\n 1. Begin bij de grootste schaar.\n 2. Tel de twee cijfers van het huisnummer op en ga dit aantal naar links.\n 3. Loop in de richting van het langste streepje van de X. Het aantal stappen is aantal cijfers dat na 0486 komt.\n 4. De eerste letter is de klinker die het vaakst op het bordje staat.\n\n Stap 2:\n 1. Begin bij John en Pim.\n 2. Hoeveel werkzaamheden bieden ze aan? Loop dat aantal opzij: volg de hamer van kop naar steel.\n 3. Loop het aantal tenen in de richting die de D aanwijst.\n 4. De tweede letter is de eerste letter van de achternaam.\n\n Stap 3:\n 1. Begin bij de boom.\n 2. Loop het aantal B's plus het huisnummer mee in de richting die de W aanwijst.\n  3. Wat is het laatste oneven getal in het telefoon nummer? Loop dat aantal stappen in de richting van de kant van de donkerste P.\n 4. Pak de 5de letter van de website als je achteraan begint.\n\n\n" 
       +"Waar heeft Matt jarenlang 'gewerkt'?",
       answer: "LOE",
-      hints: ["Jullie hebben 3 aanwijzingen gekregen en het antwoord bestaat uit 3 letters. Toevallig, hè?", "VERWIJDEREN"],
+      hints: ["Jullie hebben 3 aanwijzingen gekregen en het antwoord bestaat uit 3 letters. Toevallig, hè?"],
     },
     completeMessage: "Dit was de kantine! Op naar de volgende stop.",
   }, 
   {
     name: "Van Classic Rock tot The Rock", //Adres: 't Dorpshuus, Meester Bongaardsweg 2, 5364 PM Escharen
     // Nog doen: 
-    // 2. Foto's toevoegen startscherm van Status Quo en Alice Cooper 
+    // 2. Foto's toevoegen van Alice Cooper?? 
     // 3. Foto's eindscherm toevoegen van Cody's making off 
-    // 4. Optioneel: volgorde films aanpassen
     lat: 51.744164, 
     lng: 5.745508,
     arrivalRadius: 10,
@@ -167,7 +165,6 @@ export const STOPS = [
    {
     name: "Stoute opa!", // Adres: Speeltuin bij Basisschool de Ester - Sint Machutusweg 2A, 5364 RB Escharen
     // Nog doen: 
-    // 2. Puzzel tekst aanpassen 
     // 3. Foto toevoegen van spelende opa met kleinkinderen bij eindpagina
     lat: 51.742911, 
     lng: 5.745409,
