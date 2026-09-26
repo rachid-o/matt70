@@ -117,6 +117,8 @@ export const STOPS = [
     puzzle: {
       type: "multi",
       question: "Onderstaande foto komt niet helemaal overeen met de werkelijkheid. De muurschildering ziet er in het echt ietsjes anders uit. Kunnen jullie alle verschillen vinden? \n\n Tip: klik op de foto om te vergroten of te verkleinen.",
+      image: `${import.meta.env.BASE_URL}tennishok/verschillen.jpg`,
+      imageAlt: "De muurschildering bij het oefenhok",
       questions: [
         { question: "Hoeveel verschillen zijn er?", answers: ["7"] },
             ],

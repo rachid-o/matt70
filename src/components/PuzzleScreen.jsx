@@ -21,6 +21,7 @@ export default function PuzzleScreen({ stopIndex, onSolved, overridePuzzle, onCl
   const [hintsShown, setHintsShown] = useState(0);
   const [showHintOverlay, setShowHintOverlay] = useState(false);
   const [puzzleDone, setPuzzleDone] = useState(false);
+  const [questionImageOpen, setQuestionImageOpen] = useState(false);
 
   function handlePuzzleSolved() {
     setPuzzleDone(true);
@@ -63,7 +64,31 @@ export default function PuzzleScreen({ stopIndex, onSolved, overridePuzzle, onCl
 
       <div className="puzzle-box">
         <p className="puzzle-question">{puzzle.question}</p>
+        {puzzle.image && (
+          <button
+            className="puzzle-question-image-button"
+            type="button"
+            onClick={() => setQuestionImageOpen(true)}
+            aria-label="Foto vergroten"
+          >
+            <img src={puzzle.image} alt={puzzle.imageAlt ?? "Foto bij de opdracht"} />
+          </button>
+        )}
       </div>
+
+      {questionImageOpen && (
+        <div className="po-lightbox" onClick={() => setQuestionImageOpen(false)}>
+          <button
+            className="po-lightbox-close"
+            type="button"
+            onClick={() => setQuestionImageOpen(false)}
+            aria-label="Foto sluiten"
+          >
+            ✕
+          </button>
+          <img src={puzzle.image} alt={puzzle.imageAlt ?? "Foto bij de opdracht"} className="po-lightbox-img" />
+        </div>
+      )}
 
       {hints.length > 0 && (
         <button className="btn-hint" onClick={handleHintOpen}>

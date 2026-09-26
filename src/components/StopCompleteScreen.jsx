@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { STOPS } from "../config/trail";
 import { catUrlForStop } from "../utils/catPhotos";
 
 export default function StopCompleteScreen({ stopIndex, onNext }) {
+  const [catImageOpen, setCatImageOpen] = useState(false);
   const stop = STOPS[stopIndex];
   const isLastStop = STOPS[stopIndex + 1]?.isFinal ?? stopIndex === STOPS.length - 1;
   const catUrl = stop.showCat ? catUrlForStop(stopIndex) : null;
@@ -11,7 +13,28 @@ export default function StopCompleteScreen({ stopIndex, onNext }) {
       <h2>{stop.completeMessage}</h2>
 
       {catUrl && (
-        <img src={catUrl} alt="Een lieve kat voor jullie" className="cat-reward" />
+        <button
+          type="button"
+          className="cat-reward"
+          onClick={() => setCatImageOpen(true)}
+          aria-label="Kattenfoto vergroten"
+        >
+          <img src={catUrl} alt="Een lieve kat voor jullie" className="cat-reward-image" />
+        </button>
+      )}
+
+      {catImageOpen && (
+        <div className="po-lightbox" onClick={() => setCatImageOpen(false)}>
+          <button
+            className="po-lightbox-close"
+            type="button"
+            onClick={() => setCatImageOpen(false)}
+            aria-label="Foto sluiten"
+          >
+            ✕
+          </button>
+          <img src={catUrl} alt="Een lieve kat voor jullie" className="po-lightbox-img" />
+        </div>
       )}
 
       <div className="progress-dots">
