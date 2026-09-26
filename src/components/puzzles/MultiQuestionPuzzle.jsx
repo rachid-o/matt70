@@ -69,7 +69,7 @@ export default function MultiQuestionPuzzle({ puzzle, onSolved }) {
 
       {solved && (
         <p className="pa-check" style={{ fontSize: "1.2rem" }}>
-          🎉 Alle antwoorden kloppen!
+          🎉 {questions.length === 1 ? "Dat klopt!" : "Alle antwoorden kloppen!"}
         </p>
       )}
     </div>

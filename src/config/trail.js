@@ -26,44 +26,40 @@ export const WELCOME = {
 };
 
 export const STOPS = [
-
-    {
-    name: "Speeltuin Neptunus",
-    lat: 51.838921,
-    lng: 5.832842,
-    arrivalRadius: 10,
-    showCat: true,
-    cheatCode: "t1n7",
-    puzzle: {
-      type: "text",
-      question: "1 + 1 = ?",
-      answer: "2",
-      hints: ["Gebruik een rekenmachine"],
-    },
-    completeMessage: "Geweldig! Jullie eerste stop zit erop! Op naar de volgende stop.",
-  },
-  {
-    name: "Verder in Planetenpark",
-    lat: 51.839266, 
-    lng: 5.831495,
-    arrivalRadius: 20,
-    showCat: true,
-    cheatCode: "m1p7",
-    puzzle: {
-      type: "text",
-      question: "Jullie eerste echte vakantie samen: welke stad was dat?",
-      answer: "amsterdam",
-      hints: ["De stad staat bekend om zijn grachten en fietsen.", "Het was ergens in Nederland, de hoofdstad."],
-    },
-    completeMessage: "Wat een mooie herinnering! Jullie zijn er bijna...",
-  },
+  //   {
+  //   name: "Speeltuin Neptunus",
+  //   lat: 51.838921,
+  //   lng: 5.832842,
+  //   arrivalRadius: 10,
+  //   showCat: false,
+  //   cheatCode: "t1n7",
+  //   puzzle: {
+  //     type: "text",
+  //     question: "1 + 1 = ?",
+  //     answer: "2",
+  //     hints: ["Gebruik een rekenmachine"],
+  //   },
+  //   completeMessage: "Geweldig! Jullie eerste stop zit erop! Op naar de volgende stop.",
+  // },
+  // {
+  //   name: "Verder in Planetenpark",
+  //   lat: 51.839266, 
+  //   lng: 5.831495,
+  //   arrivalRadius: 20,
+  //   showCat: false,
+  //   cheatCode: "m1p7",
+  //   puzzle: {
+  //     type: "text",
+  //     question: "Jullie eerste echte vakantie samen: welke stad was dat?",
+  //     answer: "amsterdam",
+  //     hints: ["De stad staat bekend om zijn grachten en fietsen.", "Het was ergens in Nederland, de hoofdstad."],
+  //   },
+  //   completeMessage: "Wat een mooie herinnering! Jullie zijn er bijna...",
+  // },
   {
     name: "Er was eens...", //adres: Beerschemaasweg 55, 6545 AC Nijmegen
     // Nog doen: 
-    // 1. HIJ WERKT NIET!! Als ik invoer wat bij antwoord staat, dan telt ie hem fout. 
-    //      Bij mij werkt het gewoon goed.
     // 4. Check volgorde: wie is ouder, Sanne of Rachid
-    // Misschien duidelijk maken in de tekst dat dit foto's van ons (deze groep) zijn?
     lat: 51.741513, 
     lng: 5.748516,
     arrivalRadius: 10,
@@ -71,7 +67,7 @@ export const STOPS = [
     cheatCode: "r2e9",
     arrivalMessage: "Lang geleden, heel lang geleden, op een boerderij in een heel klein dorpje werd een kleine Martien geboren. Hij groeide op tot een bebaarde jongeman en ontmoette zijn prinses uit Langenboom. Samen kregen ze twee draakjes van kinderen. Elke week passen ze op de kleinkaboutertjes en leven ze nog lang en gelukkig. \n\n"
       + "Opdracht 1 - Herken jullie baby foto's!\n"
-      + "- Zet jullie foto's in de juiste volgorde. Begin met de oudste persoon en eindig met de jongste.\n"
+      + "- Zet de babyfoto's van onze groep in de juiste volgorde. Begin met de oudste persoon en eindig met de jongste.\n"
       + "- Let op: er staan ook foute foto's tussen. Maar dat betekent niet dat jullie ze niet kennen.\n"
       + "- Jullie krijgen te zien hoeveel antwoorden jullie goed hebben.\n"
       + "- Klik op de foto om te vergroten. Klik nog een keer om het weer te verkleinen.\n\n"
@@ -103,11 +99,6 @@ export const STOPS = [
   {
     name: "Je moet een Risk durven nemen", // Adres: Oefenhokje van Tennisvereniging Esteren, Karweg 2, 5364 MZ Escharen
     // Nog doen: 
-    // 2. Puzzel aanpassen. 
-    // 3. Foto grafitti toevoegen. 
-    // 4. Bij goede antwoord tekst aanpassen naar 'Dat klopt!'
-    // 5. Foto toevoegen met goede antwoorden omcirkeld 
-    // 6. Foto's toevoegen van sport en spel bij startpagina
     lat: 51.740569, 
     lng: 5.739456,
     arrivalRadius: 5,
@@ -128,9 +119,6 @@ export const STOPS = [
     {
     name: "Een lange loopbaan", //Adres: Kantine van Tennisvereniging Esteren, Karweg 2, 5364 MZ Escharen
     // Nog doen: 
-    // 2. Puzzel tekst aanpassen 
-    // 3. Foto toevoegen prins Matt en/of LOE na afronden opdracht 
-    // 4. Foto toevoegen van werk bij startpagina 
     // 5. Rachid Tweede hint verwijderen
     lat: 51.740666, 
     lng: 5.740385,
@@ -218,14 +206,15 @@ export const STOPS = [
  {
     name: "Wereldwijs(?)", // Adres: Thuis, Veldweg 17, 5364 RH Escharen
     // Nog doen: 
-    // 2. Extra pagina toevoegen met foto's van reizen en eerste deel van tekst. 
-    // 3. Foto toevoegen van familie bij tweede pagina tekst 
-    // 4. Rachid Hint weghalen bij kompas (wel laten staan bij arrivalmessage) 
     // 5. tekst gecentreerd aanpassen naar links uitgelijnd
     lat: 51.742354, 
     lng: 5.748381,
     arrivalRadius: 5,
     hints: ["Leg de foto's op chronologische volgorde en draai ze om."],
+    puzzle: {
+      image: `${import.meta.env.BASE_URL}wereldwijs/gezin.jpg`,
+      imageAlt: "De familie samen",
+    },
     arrivalMessage: "Samen reizen opa en oma de wereld rond.\n Maar geen enkele plek is zo fijn als hier: \n thuis met z'n allen samen. \n\n Lieve opa, \n\nDe reis is bijna ten einde: nog 1 opdracht te gaan.\n In de kamer liggen drie foto's verstopt: \n samen vormen ze de code. \n\n Succes!",
     showCat: true,
     isFinal: true,

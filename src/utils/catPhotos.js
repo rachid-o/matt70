@@ -1,12 +1,12 @@
 const filenames = [
   "1.jpg",
-  "2.jpg",
-  "3.jpg",
-  "4.jpg",
+  "tennishok.jpg",
+  "prins.jpg",
+  "classicrock.jpg",
   "5.jpg",
   "6.jpg",
-  "7.jpg",
-  "8.jpg",
+  // "7.jpg",
+  // "8.jpg",
 ];
 
 export function randomCatUrl() {

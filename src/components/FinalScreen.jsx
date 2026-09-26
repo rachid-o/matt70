@@ -3,9 +3,12 @@ import { STOPS } from "../config/trail";
 
 export default function FinalScreen() {
   const stop = STOPS[STOPS.length - 1];
+  const image = stop.puzzle?.image;
+  const imageAlt = stop.puzzle?.imageAlt ?? "Foto bij de eindlocatie";
   const hints = stop.hints ?? [];
   const [hintsShown, setHintsShown] = useState(0);
   const [showHintOverlay, setShowHintOverlay] = useState(false);
+  const [showFinalImage, setShowFinalImage] = useState(false);
 
   function handleHintOpen() {
     if (hintsShown === 0) setHintsShown(1);
@@ -19,7 +22,31 @@ export default function FinalScreen() {
         {stop.arrivalMessage.split("\n").map((line, i) =>
           line ? <p key={i}>{line}</p> : <br key={i} />
         )}
+        {image && (
+          <button
+            className="puzzle-question-image-button"
+            type="button"
+            onClick={() => setShowFinalImage(true)}
+            aria-label="Familiefoto vergroten"
+          >
+            <img src={image} alt={imageAlt} />
+          </button>
+        )}
       </div>
+
+      {showFinalImage && (
+        <div className="po-lightbox" onClick={() => setShowFinalImage(false)}>
+          <button
+            className="po-lightbox-close"
+            type="button"
+            onClick={() => setShowFinalImage(false)}
+            aria-label="Foto sluiten"
+          >
+            ✕
+          </button>
+          <img src={image} alt={imageAlt} className="po-lightbox-img" />
+        </div>
+      )}
 
       {hints.length > 0 && (
         <button className="btn-hint" onClick={handleHintOpen}>
