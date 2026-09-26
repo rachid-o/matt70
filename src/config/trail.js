@@ -14,7 +14,7 @@ export const TEST_PIN = "9001";
 export const WELCOME = {
   title: "Opa Matt ~ 70 jaar!",
   message:
-    "Lieve opa Matt, ons pap,\n\nGefeliciteerd met je 70ste verjaardag!\n\n Om de code te kraken ga je een reis maken. Onderweg kom je allerlei opdrachten tegen, die je zonder gevaar voor eigen leven moeten oplossen!\n Gelukkig hoef je dat niet alleen te doen: jullie gaan met z'n allen samen de uitdaging aan. Het kompas wijst jullie de weg: zet hem op!\n\n"
+    "Lieve opa Matt, ons pap,\n\nGefeliciteerd met je 70ste verjaardag!\n\n Om de code te kraken ga je een reis maken. Onderweg kom je allerlei opdrachten tegen, die je zonder gevaar voor eigen leven moet oplossen!\n Gelukkig hoef je dat niet alleen te doen: jullie gaan met z'n allen samen de uitdaging aan. Het kompas wijst jullie de weg: zet hem op!\n\n"
     + "BELANGRIJK:\n"
     + "- Het kompas moet in het begin kalibreren. Het kan dan de verkeerde richting op wijzen of minder nauwkeurig zijn.\n"
     + "- Loop eerst een tiental meters MET DE APP OPEN OP HET SCHERM. Eenmaal gekalibreerd blijft het kompas werken.\n"
