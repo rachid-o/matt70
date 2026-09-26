@@ -43,9 +43,9 @@ export const STOPS = [
     completeMessage: "Geweldig! Jullie eerste stop zit erop! Op naar de volgende stop.",
   },
   {
-    name: "Midden in Planetenpark",
-    lat: 51.838292,
-    lng: 5.830611,
+    name: "Verder in Planetenpark",
+    lat: 51.839266, 
+    lng: 5.831495,
     arrivalRadius: 20,
     showCat: true,
     cheatCode: "m1p7",
@@ -58,57 +58,14 @@ export const STOPS = [
     completeMessage: "Wat een mooie herinnering! Jullie zijn er bijna...",
   },
   {
-    name: "Speeltuin 2",
-    lat: 51.8373541,
-    lng: 5.8295025,
-    arrivalRadius: 20,
-    showCat: true,
-    cheatCode: "s2p7",
-    puzzle: {
-      type: "text",
-      question: "Wat is 1 + 1?",
-      answer: "2",
-      hints: ["Het antwoord is een getal."],
-    },
-    completeMessage: "Dit was speeltuin 2! Op naar de volgende stop.",
-  },
-  {
-    name: "Vogeltjes?",
-    lat: 51.8383303,
-    lng: 5.8280723,
-    arrivalRadius: 20,
-    showCat: true,
-    cheatCode: "v0g7",
-    puzzle: {
-      type: "text",
-      question: "Wat is 1 + 1?",
-      answer: "2",
-      hints: ["Het antwoord is een getal."],
-    },
-    completeMessage: "Had je toevallig vogeltjes kunnen spotten?",
-  },
-  {
-    name: "Steegje Lanteerne",
-    lat: 51.835570,
-    lng: 5.823362,
-    arrivalRadius: 15,
-    showCat: true,
-    cheatCode: "l4n7",
-    puzzle: {
-      type: "text",
-      question: "Wat is 1 + 1?",
-      answer: "2",
-      hints: ["Het antwoord is een getal."],
-    },
-    completeMessage: "Steegje Lanteerne! Op naar de volgende stop.",
-  },
-  {
     name: "Er was eens...", //adres: Beerschemaasweg 55, 6545 AC Nijmegen
     // Nog doen: 
-    // 2. Aantal antwoorden aanpassen, hij kan nu niet omgaan met dat er foute antwoorden tussen staan.
-    // 3. adres aan de straat (plus grotere radius)
-    lat: 51.741462, 
-    lng: 5.748668,
+    // 1. HIJ WERKT NIET!! Als ik invoer wat bij antwoord staat, dan telt ie hem fout. 
+    //      Bij mij werkt het gewoon goed.
+    // 4. Check volgorde: wie is ouder, Sanne of Rachid
+    // Misschien duidelijk maken in de tekst dat dit foto's van ons (deze groep) zijn?
+    lat: 51.741513, 
+    lng: 5.748516,
     arrivalRadius: 10,
     showCat: true,
     cheatCode: "r2e9",
@@ -126,7 +83,7 @@ export const STOPS = [
       photos: [
         { label: "A", url: `${import.meta.env.BASE_URL}tijdvliegt/A.jpg` }, // Erik
         { label: "B", url: `${import.meta.env.BASE_URL}tijdvliegt/B.jpg` }, // Moeder Sanne
-        { label: "C", url: `${import.meta.env.BASE_URL}tijdvliegt/C.jpg` }, // Jeanne
+        { label: "C", url: `${import.meta.env.BASE_URL}tijdvliegt/C.jpg` }, // Robin
         { label: "D", url: `${import.meta.env.BASE_URL}tijdvliegt/D.jpg` }, // Rachid
         { label: "E", url: `${import.meta.env.BASE_URL}tijdvliegt/E.jpg` }, // Nora 
         { label: "F", url: `${import.meta.env.BASE_URL}tijdvliegt/F.jpg` }, // Bas
@@ -136,10 +93,10 @@ export const STOPS = [
         { label: "J", url: `${import.meta.env.BASE_URL}tijdvliegt/J.jpg` }, // Sarah
         { label: "K", url: `${import.meta.env.BASE_URL}tijdvliegt/K.jpg` }, // Cody
         { label: "L", url: `${import.meta.env.BASE_URL}tijdvliegt/L.jpg` }, // Sanne
-        { label: "M", url: `${import.meta.env.BASE_URL}tijdvliegt/M.jpg` }, // Robin
+        { label: "M", url: `${import.meta.env.BASE_URL}tijdvliegt/M.jpg` }, // Jeanne
       ],
-      answer: "ICDLHANFK",
-      hints: ["De volgende foto's zijn afleiders: B, E, G, J, M"],
+      answer: "IMDLHACFK",
+      hints: ["De volgende foto's zijn afleiders: B, E, G, J"],
     },
     completeMessage: "Dit was Beerschemaasweg 55! \n\n Op naar de volgende stop.",
   },
@@ -181,8 +138,8 @@ export const STOPS = [
     arrivalMessage: "Opa Matt geniet nu van een welverdiend persioen, maar hiervoor was hij beroepsambtenaar. Hij werd over de hele regio gestationeerd, zoals helemaal in Beers en zelfs in Uden! Maar onze Matt heeft voor nog een bijzondere organisatie gewerkt. Weten jullie welke? \n\nOpdracht: \n Volg de drie aanwijzingen om het antwoord te vinden.",
     puzzle: {
       type: "text",
-      question: "Aanwijzingen:\n 1. NOG MAKEN (E) \n 2. NOG MAKEN (L) \n 3. NOG MAKEN (O) \n\n" 
-      +"Waarvoor heeft Matt jarenlang 'gewerkt'?",
+      question: "Aanwijzingen:\n Stap 1:\n 1. Begin bij de grootste schaar.\n 2. Tel de twee cijfers van het huisnummer op en ga dit aantal naar links.\n 3. Loop in de richting van het langste streepje van de X. Het aantal stappen is aantal cijfers dat na 0486 komt.\n 4. De eerste letter is de klinker die het vaakst op het bordje staat.\n\n Stap 2:\n 1. Begin bij John en Pim.\n 2. Hoeveel werkzaamheden bieden ze aan? Loop dat aantal opzij: volg de hamer van kop naar steel.\n 3. Loop het aantal tenen in de richting die de D aanwijst.\n 4. De tweede letter is de eerste letter van de achternaam.\n\n Stap 3:\n 1. Begin bij de boom.\n 2. Loop het aantal B's plus het huisnummer mee in de richting die de W aanwijst.\n  3. Wat is het laatste oneven getal in het telefoon nummer? Loop dat aantal stappen in de richting van de kant van de donkerste P.\n 4. Pak de 5de letter van de website als je achteraan begint.\n\n\n" 
+      +"Waar heeft Matt jarenlang 'gewerkt'?",
       answer: "LOE",
       hints: ["Jullie hebben 3 aanwijzingen gekregen en het antwoord bestaat uit 3 letters. Toevallig, hè?", "VERWIJDEREN"],
     },
