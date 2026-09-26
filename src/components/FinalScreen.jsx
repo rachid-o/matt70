@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { STOPS } from "../config/trail";
 
-export default function FinalScreen() {
-  const stop = STOPS[STOPS.length - 1];
+export default function FinalScreen({ stops = STOPS }) {
+  const stop = stops[stops.length - 1];
   const image = stop.puzzle?.image;
   const imageAlt = stop.puzzle?.imageAlt ?? "Foto bij de eindlocatie";
   const hints = stop.hints ?? [];

@@ -6,6 +6,7 @@ export const DEBUG_MODE = false;
 
 export const PIN = "1956";
 export const DEBUG_PIN = "9000";
+export const TEST_PIN = "9001";
 
 // Tekst om te vertellen: papa, gefeliciteerd. We hebben een heel leuk kadootje voor je. 
 // Alleen hadden we die voor de zekerheid opgeborgen in een kistje. Met een slot er omheen, zodat het extra veilig is. Maar nu zijn we de code kwijt. 
@@ -25,36 +26,40 @@ export const WELCOME = {
 };
 
 export const STOPS = [
-  //   {
-  //   name: "Speeltuin Neptunus",
-  //   lat: 51.838921,
-  //   lng: 5.832842,
-  //   arrivalRadius: 10,
-  //   showCat: false,
-  //   cheatCode: "t1n7",
-  //   puzzle: {
-  //     type: "text",
-  //     question: "1 + 1 = ?",
-  //     answer: "2",
-  //     hints: ["Gebruik een rekenmachine"],
-  //   },
-  //   completeMessage: "Geweldig! Jullie eerste stop zit erop! Op naar de volgende stop.",
-  // },
-  // {
-  //   name: "Verder in Planetenpark",
-  //   lat: 51.839266, 
-  //   lng: 5.831495,
-  //   arrivalRadius: 20,
-  //   showCat: false,
-  //   cheatCode: "m1p7",
-  //   puzzle: {
-  //     type: "text",
-  //     question: "Jullie eerste echte vakantie samen: welke stad was dat?",
-  //     answer: "amsterdam",
-  //     hints: ["De stad staat bekend om zijn grachten en fietsen.", "Het was ergens in Nederland, de hoofdstad."],
-  //   },
-  //   completeMessage: "Wat een mooie herinnering! Jullie zijn er bijna...",
-  // },
+  {
+    name: "Speeltuin Neptunus",
+    lat: 51.838921,
+    lng: 5.832842,
+    arrivalRadius: 10,
+    showCat: false,
+    testStop: true,
+    cheatCode: "t1n7",
+    arrivalMessage: "Jullie zijn aangekomen bij Speeltuin Neptunus. Los de eerste opdracht op!",
+    puzzle: {
+      type: "text",
+      question: "1 + 1 = ?",
+      answer: "2",
+      hints: ["Gebruik een rekenmachine"],
+    },
+    completeMessage: "Geweldig! Jullie eerste stop zit erop! Op naar de volgende stop.",
+  },
+  {
+    name: "Verder in Planetenpark",
+    lat: 51.839266,
+    lng: 5.831495,
+    arrivalRadius: 20,
+    showCat: false,
+    testStop: true,
+    cheatCode: "m1p7",
+    arrivalMessage: "Jullie zijn aangekomen bij de volgende plek in het Planetenpark. Los de opdracht op!",
+    puzzle: {
+      type: "text",
+      question: "Jullie eerste echte vakantie samen: welke stad was dat?",
+      answer: "amsterdam",
+      hints: ["De stad staat bekend om zijn grachten en fietsen.", "Het was ergens in Nederland, de hoofdstad."],
+    },
+    completeMessage: "Wat een mooie herinnering! Jullie zijn er bijna...",
+  },
   {
     name: "Er was eens...", //adres: Beerschemaasweg 55, 6545 AC Nijmegen
     // Nog doen: 

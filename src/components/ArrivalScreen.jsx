@@ -1,13 +1,13 @@
 import { STOPS } from "../config/trail";
 
-export default function ArrivalScreen({ stopIndex, onStart }) {
-  const stop = STOPS[stopIndex];
+export default function ArrivalScreen({ stopIndex, stops = STOPS, onStart }) {
+  const stop = stops[stopIndex];
   const message = stop.arrivalMessage ?? "TODO";
 
   return (
     <div className="screen arrival-screen">
       <div className="stop-badge">
-        Stop {stopIndex + 1} / {STOPS.length}
+        Stop {stopIndex + 1} / {stops.length}
       </div>
       <h2 className="arrival-name">{stop.name}</h2>
       <div className="arrival-message">

@@ -2,10 +2,9 @@ import { useState } from "react";
 import { STOPS } from "../config/trail";
 import { catUrlForStop } from "../utils/catPhotos";
 
-export default function StopCompleteScreen({ stopIndex, onNext }) {
+export default function StopCompleteScreen({ stopIndex, stops = STOPS, onNext }) {
   const [catImageOpen, setCatImageOpen] = useState(false);
-  const stop = STOPS[stopIndex];
-  const isLastStop = STOPS[stopIndex + 1]?.isFinal ?? stopIndex === STOPS.length - 1;
+  const stop = stops[stopIndex];
   const catUrl = stop.showCat ? catUrlForStop(stopIndex) : null;
 
   return (
@@ -38,7 +37,7 @@ export default function StopCompleteScreen({ stopIndex, onNext }) {
       )}
 
       <div className="progress-dots">
-        {STOPS.map((_, i) => (
+        {stops.map((_, i) => (
           <div key={i} className={`progress-dot ${i <= stopIndex ? "done" : ""}`} />
         ))}
       </div>

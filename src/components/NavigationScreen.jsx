@@ -10,8 +10,8 @@ function shortestPath(from, to) {
   return from + diff;
 }
 
-export default function NavigationScreen({ stopIndex, onArrived, debugMode }) {
-  const stop = STOPS[stopIndex];
+export default function NavigationScreen({ stopIndex, stops = STOPS, onArrived, debugMode }) {
+  const stop = stops[stopIndex];
   const { position, error: gpsError } = useGeolocation();
   const { heading, permissionNeeded, requestPermission, compassAvailable } = useCompass();
   const prevRotationRef = useRef(null);
@@ -57,7 +57,7 @@ export default function NavigationScreen({ stopIndex, onArrived, debugMode }) {
   return (
     <div className="screen navigation-screen">
       <div className={`stop-badge${stop.isFinal ? " finale" : ""}`}>
-        {stop.isFinal ? "Finale" : `Stop ${stopIndex + 1} / ${STOPS.length}`}
+        {stop.isFinal ? "Finale" : `Stop ${stopIndex + 1} / ${stops.length}`}
       </div>
 
       <h2>{stop.isFinal ? "Jullie zijn er bijna!" : "Volg het kompas"}</h2>

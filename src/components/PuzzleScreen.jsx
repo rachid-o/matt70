@@ -11,9 +11,9 @@ import PhotoQuizPuzzle from "./puzzles/PhotoQuizPuzzle";
 import MultiChoicePuzzle from "./puzzles/MultiChoicePuzzle";
 
 
-export default function PuzzleScreen({ stopIndex, onSolved, overridePuzzle, onClose, onBack, debugMode }) {
+export default function PuzzleScreen({ stopIndex, stops = STOPS, onSolved, overridePuzzle, onClose, onBack, debugMode }) {
   const isPreview = !!overridePuzzle;
-  const puzzle = overridePuzzle ?? STOPS[stopIndex].puzzle;
+  const puzzle = overridePuzzle ?? stops[stopIndex].puzzle;
   const hints = puzzle.hints ?? (puzzle.hint ? [puzzle.hint] : []);
 
   const [input, setInput] = useState("");
@@ -57,7 +57,7 @@ export default function PuzzleScreen({ stopIndex, onSolved, overridePuzzle, onCl
             ← Terug
           </button>
           <div className="stop-badge">
-            Stop {stopIndex + 1} / {STOPS.length}
+            Stop {stopIndex + 1} / {stops.length}
           </div>
         </div>
       )}

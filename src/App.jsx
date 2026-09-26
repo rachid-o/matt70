@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useWakeLock } from "./hooks/useWakeLock";
 import { useProgress } from "./hooks/useProgress";
 import PinScreen from "./components/PinScreen";
@@ -20,10 +20,20 @@ export default function App() {
   const { progress, update } = useProgress();
   const [showTest, setShowTest] = useState(false);
   const [previewPuzzle, setPreviewPuzzle] = useState(null);
-  const { screen, currentStopIndex, debugMode } = progress;
+  const { screen, currentStopIndex, debugMode, testStopMode } = progress;
+  const routeStops = useMemo(
+    () => (testStopMode ? STOPS : STOPS.filter((stop) => !stop.testStop)),
+    [testStopMode],
+  );
 
-  const handlePinSuccess = useCallback((isDebug) => {
-    update({ pinVerified: true, screen: "welcome", debugMode: !!isDebug });
+  const handlePinSuccess = useCallback((mode) => {
+    update({
+      pinVerified: true,
+      screen: "welcome",
+      debugMode: mode === "debug" || mode === "test",
+      testStopMode: mode === "test",
+      currentStopIndex: 0,
+    });
   }, [update]);
 
   const handleStart = useCallback(() => {
@@ -31,9 +41,9 @@ export default function App() {
   }, [update]);
 
   const handleArrived = useCallback(() => {
-    const isFinal = STOPS[currentStopIndex]?.isFinal;
+    const isFinal = routeStops[currentStopIndex]?.isFinal;
     update({ screen: isFinal ? "final" : "arrival" });
-  }, [update, currentStopIndex]);
+  }, [update, currentStopIndex, routeStops]);
 
   const handleStartPuzzle = useCallback(() => {
     update({ screen: "puzzle" });
@@ -49,40 +59,41 @@ export default function App() {
 
   const handleNextStop = useCallback(() => {
     const nextIndex = currentStopIndex + 1;
-    if (nextIndex < STOPS.length) {
+    if (nextIndex < routeStops.length) {
       update({ currentStopIndex: nextIndex, screen: "navigate" });
     }
-  }, [update, currentStopIndex]);
+  }, [update, currentStopIndex, routeStops]);
 
   useEffect(() => {
     const stopScreens = ["navigate", "arrival", "puzzle", "stopComplete"];
-    if (stopScreens.includes(screen) && currentStopIndex >= STOPS.length) {
+    if (stopScreens.includes(screen) && currentStopIndex >= routeStops.length) {
       update({ screen: "final" });
     }
-  }, [screen, currentStopIndex, update]);
+  }, [screen, currentStopIndex, routeStops.length, update]);
 
-  const validStop = currentStopIndex < STOPS.length;
+  const validStop = currentStopIndex < routeStops.length;
 
   let content = null;
   if (screen === "pin") content = <PinScreen onSuccess={handlePinSuccess} />;
   else if (screen === "welcome") content = <WelcomeScreen onStart={handleStart} />;
   else if (screen === "navigate" && validStop)
-    content = <NavigationScreen stopIndex={currentStopIndex} onArrived={handleArrived} debugMode={debugMode} />;
+    content = <NavigationScreen stopIndex={currentStopIndex} stops={routeStops} onArrived={handleArrived} debugMode={debugMode} />;
   else if (screen === "arrival" && validStop)
-    content = <ArrivalScreen stopIndex={currentStopIndex} onStart={handleStartPuzzle} />;
+    content = <ArrivalScreen stopIndex={currentStopIndex} stops={routeStops} onStart={handleStartPuzzle} />;
   else if (screen === "puzzle" && validStop)
     content = (
       <PuzzleScreen
         stopIndex={currentStopIndex}
+        stops={routeStops}
         onSolved={handleSolved}
         onBack={handleBackToArrival}
         debugMode={debugMode}
       />
     );
   else if (screen === "stopComplete" && validStop)
-    content = <StopCompleteScreen stopIndex={currentStopIndex} onNext={handleNextStop} />;
+    content = <StopCompleteScreen stopIndex={currentStopIndex} stops={routeStops} onNext={handleNextStop} />;
   else if (screen === "final")
-    content = <FinalScreen />;
+    content = <FinalScreen stops={routeStops} />;
 
   const mainContent = previewPuzzle ? (
     <PuzzleScreen
@@ -110,9 +121,9 @@ export default function App() {
       {debugMode && <TestButton onClick={() => setShowTest(true)} />}
       {showTest && (
         <TestScreen
+          stops={routeStops}
           onSelectStop={handleTestSelectStop}
           onClose={() => setShowTest(false)}
-          onPreviewPuzzle={(puzzle) => { setPreviewPuzzle(puzzle); setShowTest(false); }}
         />
       )}
       {mainContent}
@@ -121,7 +132,7 @@ export default function App() {
           {screen === "navigate" && validStop ? (
             <a
               className="debug-maps-link"
-              href={`https://maps.google.com/?q=${STOPS[currentStopIndex].lat},${STOPS[currentStopIndex].lng}`}
+              href={`https://maps.google.com/?q=${routeStops[currentStopIndex].lat},${routeStops[currentStopIndex].lng}`}
               target="_blank"
               rel="noopener noreferrer"
             >
