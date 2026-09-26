@@ -3,8 +3,8 @@ const filenames = [
   "tennishok.jpg",
   "prins.jpg",
   "classicrock.jpg",
-  "5.jpg",
-  "6.jpg",
+  "spelletjes.jpg",
+  "wereldwijs.jpg",
   // "7.jpg",
   // "8.jpg",
 ];

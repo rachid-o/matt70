@@ -6,11 +6,10 @@ export const DEBUG_MODE = false;
 
 export const PIN = "1956";
 export const DEBUG_PIN = "9000";
-// Nog doen: tekst bij pincode aanpassen 
+
 // Tekst om te vertellen: papa, gefeliciteerd. We hebben een heel leuk kadootje voor je. 
 // Alleen hadden we die voor de zekerheid opgeborgen in een kistje. Met een slot er omheen, zodat het extra veilig is. Maar nu zijn we de code kwijt. 
 // We hebben gelukkig wel een manier voor je om de code te achterhalen. Daar kan deze tablet je bij helpen. Heel veel succes.
-
 export const WELCOME = {
   title: "Opa Matt ~ 70 jaar!",
   message:
@@ -137,8 +136,6 @@ export const STOPS = [
   {
     name: "Van Classic Rock tot The Rock", //Adres: 't Dorpshuus, Meester Bongaardsweg 2, 5364 PM Escharen
     // Nog doen: 
-    // 2. Foto's toevoegen van Alice Cooper?? 
-    // 3. Foto's eindscherm toevoegen van Cody's making off 
     lat: 51.744164, 
     lng: 5.745508,
     arrivalRadius: 10,
@@ -165,7 +162,6 @@ export const STOPS = [
    {
     name: "Stoute opa!", // Adres: Speeltuin bij Basisschool de Ester - Sint Machutusweg 2A, 5364 RB Escharen
     // Nog doen: 
-    // 3. Foto toevoegen van spelende opa met kleinkinderen bij eindpagina
     lat: 51.742911, 
     lng: 5.745409,
     arrivalRadius: 10,
@@ -209,7 +205,7 @@ export const STOPS = [
     arrivalRadius: 5,
     hints: ["Leg de foto's op chronologische volgorde en draai ze om."],
     puzzle: {
-      image: `${import.meta.env.BASE_URL}wereldwijs/gezin.jpg`,
+      image: `${import.meta.env.BASE_URL}wereldwijs/samenopfiets.jpg`,
       imageAlt: "De familie samen",
     },
     arrivalMessage: "Samen reizen opa en oma de wereld rond.\n Maar geen enkele plek is zo fijn als hier: \n thuis met z'n allen samen. \n\n Lieve opa, \n\nDe reis is bijna ten einde: nog 1 opdracht te gaan.\n In de kamer liggen drie foto's verstopt: \n samen vormen ze de code. \n\n Succes!",
